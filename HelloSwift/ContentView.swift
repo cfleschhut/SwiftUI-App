@@ -14,9 +14,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Welcome to my first app!")
-                .fontWeight(.semibold)
-                .foregroundColor(Color.green)
+            //
+            HStack {
+                Text("Put the slider as close as you can to:")
+                Text("100")
+            }
+            
+            //
+            HStack {
+                Text("1")
+                Slider(value: .constant(10))
+                Text("100")
+            }
+            
+            //
             Button(action: {
                 print("Button pressed")
                 self.alertIsVisible = true
