@@ -24,7 +24,6 @@ struct ContentView: View {
                 Text(/*@START_MENU_TOKEN@*/"Hit me!"/*@END_MENU_TOKEN@*/)
             }
             .alert(isPresented: $alertIsVisible) {
-                () -> Alert in
                 return Alert(
                     title: Text("Hello there!"),
                     message: Text("First pop-up"),
@@ -37,6 +36,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().previewLayout(.fixed(width: 896, height: 414))
     }
 }
