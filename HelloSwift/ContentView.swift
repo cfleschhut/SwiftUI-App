@@ -12,6 +12,7 @@ struct ContentView: View {
     
     @State var alertIsVisible: Bool = false
     @State var sliderValue: Double = 50.0
+    @State var target: Int = Int.random(in: 1...100)
     
     var body: some View {
         VStack {
@@ -19,7 +20,7 @@ struct ContentView: View {
             Spacer()
             HStack {
                 Text("Put the slider as close as you can to:")
-                Text("100")
+                Text("\(self.target)")
             }
             
             //
@@ -41,7 +42,10 @@ struct ContentView: View {
                 let roundedValue: Int = Int(self.sliderValue.rounded())
                 return Alert(
                     title: Text("Hello there!"),
-                    message: Text("Slider value: \(roundedValue)"),
+                    message: Text(
+                        "Slider value: \(roundedValue)\n\n" +
+                        "You scored \(self.pointsForCurrentRound()) points this round."
+                    ),
                     dismissButton: .default(Text("Awesome!"))
                 )
             }
@@ -64,6 +68,10 @@ struct ContentView: View {
                 }
             }.padding(.bottom, 20)
         }
+    }
+    
+    func pointsForCurrentRound() -> Int {
+        return 999
     }
 }
 
