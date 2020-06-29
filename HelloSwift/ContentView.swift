@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var alertIsVisible = false
     @State var sliderValue = 50.0
     @State var target = Int.random(in: 1...100)
+    @State var score = 0
     
     var body: some View {
         VStack {
@@ -35,6 +36,7 @@ struct ContentView: View {
             Button(action: {
                 print("Button pressed")
                 self.alertIsVisible = true
+                self.score += self.pointsForCurrentRound()
             }) {
                 Text(/*@START_MENU_TOKEN@*/"Hit me!"/*@END_MENU_TOKEN@*/)
             }
@@ -57,7 +59,7 @@ struct ContentView: View {
                 }
                 Spacer()
                 Text("Score:")
-                Text("999")
+                Text("\(score)")
                 Spacer()
                 Text("Round:")
                 Text("999")
