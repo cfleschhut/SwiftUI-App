@@ -14,6 +14,7 @@ struct ContentView: View {
     @State var sliderValue = 50.0
     @State var target = Int.random(in: 1...100)
     @State var score = 0
+    @State var round = 1
     
     var body: some View {
         VStack {
@@ -37,7 +38,7 @@ struct ContentView: View {
                 print("Button pressed")
                 self.alertIsVisible = true
             }) {
-                Text(/*@START_MENU_TOKEN@*/"Hit me!"/*@END_MENU_TOKEN@*/)
+                Text("Hit me!")
             }
             .alert(isPresented: $alertIsVisible) {
                 Alert(
@@ -49,6 +50,7 @@ struct ContentView: View {
                     dismissButton: .default(Text("Awesome!")) {
                         self.score += self.pointsForCurrentRound()
                         self.target = Int.random(in: 1...100)
+                        self.round += 1
                     }
                 )
             }
@@ -56,7 +58,7 @@ struct ContentView: View {
             //
             Spacer()
             HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {}) {
                     Text("Start over")
                 }
                 Spacer()
@@ -64,9 +66,9 @@ struct ContentView: View {
                 Text("\(score)")
                 Spacer()
                 Text("Round:")
-                Text("999")
+                Text("\(round)")
                 Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {}) {
                     Text("Info")
                 }
             }.padding(.bottom, 20)
