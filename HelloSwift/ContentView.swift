@@ -15,12 +15,14 @@ struct ContentView: View {
     var body: some View {
         VStack {
             //
+            Spacer()
             HStack {
                 Text("Put the slider as close as you can to:")
                 Text("100")
             }
             
             //
+            Spacer()
             HStack {
                 Text("1")
                 Slider(value: .constant(10))
@@ -43,21 +45,22 @@ struct ContentView: View {
             }
             
             //
+            Spacer()
             HStack {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                     Text("Start over")
                 }
-                
+                Spacer()
                 Text("Score:")
                 Text("999")
-                
+                Spacer()
                 Text("Round:")
                 Text("999")
-                
+                Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                     Text("Info")
                 }
-            }
+            }.padding(.bottom, 20)
         }
     }
 }
