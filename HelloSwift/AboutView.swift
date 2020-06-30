@@ -9,13 +9,38 @@
 import SwiftUI
 
 struct AboutView: View {
-    var body: some View {
-        VStack {
-            Text("🎯 Game instructions 🎯")
-            Text("Lorem Ipsum dolor sit amet")
-            Text("Enjoy!")
+    
+    let beige = Color(red: 255/255, green: 214/255, blue: 179/255)
+
+    struct AboutHeadingStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 30))
+                .padding(.vertical, 20)
         }
-        .navigationBarTitle("About Bullseye")
+    }
+    
+    struct AboutBodyStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 16))
+                .padding([.horizontal, .bottom], 20)
+        }
+    }
+    
+    var body: some View {
+        Group {
+            VStack {
+                Text("🎯 Game instructions 🎯").modifier(AboutHeadingStyle())
+                Text("Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet.").modifier(AboutBodyStyle())
+                Text("Enjoy!").modifier(AboutBodyStyle())
+            }
+            .navigationBarTitle("About Bullseye")
+            .background(beige)
+        }
+        .background(Image("Background"))
     }
 }
 
